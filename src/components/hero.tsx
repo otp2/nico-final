@@ -11,18 +11,19 @@ import Navbar from "./navbar";
 
 const Hero = () => {
   return (
-    <Section className="relative h-[90vh]">
+    <Section className="relative h-screen">
       <Container className="relative not-prose h-full">
         {/* Name and Nav */}
         <div className="flex w-full justify-between items-start">
-          <div className="">
-            <h1 className="mb-4 text-3xl font-normal md:text-6xl">
+          <div className="mt-5">
+            <h1 className="mb-4 text-3xl font-semibold md:text-6xl md:font-normal">
               <Link className="transition-all hover:opacity-70" href="#">
                 Nico Abuaf
               </Link>
             </h1>
-            <h2 className="w-48 text-lg font-light leading-6">
-              Another component from Craft UI.
+            <h2 className="text-lg leading-6">
+              Chief Economist & Strategist, Ramirez & Co<br />
+              Professor of Financial Economics, Pace University
             </h2>
           </div>
           <Navbar />
@@ -52,6 +53,9 @@ const Hero = () => {
           </div>
         </div>
       </Container>
+
+      {/* Bottom Fade Gradient */}
+      <div className="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-background to-transparent pointer-events-none" aria-hidden="true"></div>
     </Section>
   );
 };

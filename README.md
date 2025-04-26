@@ -43,7 +43,12 @@ You can start editing the main page by modifying `src/app/page.tsx`. The page au
 *   `src/components/`: Contains reusable React components used throughout the application.
     *   `navbar.tsx`: The main navigation component with desktop dropdowns and a mobile sheet drawer.
     *   `hero.tsx`: The hero section displayed on the homepage.
-    *   `ui/`: UI primitive components provided by shadcn/ui (Button, Sheet, NavigationMenu).
+    *   `feature.tsx`: The "Areas of Expertise" section with linked cards.
+    *   `logos-slider.tsx`: A component displaying a scrolling list of client logos.
+    *   `ui/`: UI primitive components provided by shadcn/ui or custom built.
+        *   `button.tsx`, `sheet.tsx`, `navigation-menu.tsx`, etc. (shadcn/ui)
+        *   `infinite-slider.tsx`: Handles the infinite scrolling logic.
+        *   `progressive-blur.tsx`: Applies a fade/blur effect to edges.
     *   `ds/`: Custom "design system" components (`Section`, `Container`) used for layout.
 *   `src/lib/`: Utility functions, such as `cn` in `utils.ts`.
 *   `public/`: Static assets like images (e.g., `new-york-city.svg`, `nico-abuaf.svg`).
