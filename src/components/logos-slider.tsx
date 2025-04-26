@@ -6,27 +6,45 @@ import { ProgressiveBlur } from '@/components/ui/progressive-blur';
 
 const logos = [
   {
-    id: "logo-2",
-    description: "Figma",
-    image: "https://www.shadcnblocks.com/images/block/logos/figma.svg",
+    id: "logo-att",
+    description: "AT&T",
+    image: "/logos/AT&T.svg",
     className: "h-7 w-auto",
   },
   {
-    id: "logo-3",
-    description: "Next.js",
-    image: "https://www.shadcnblocks.com/images/block/logos/nextjs.svg",
+    id: "logo-amex",
+    description: "American Express",
+    image: "/logos/American-Express.svg",
     className: "h-7 w-auto",
   },
   {
-    id: "logo-6",
-    description: "Supabase",
-    image: "https://www.shadcnblocks.com/images/block/logos/supabase.svg",
+    id: "logo-oracle",
+    description: "Oracle",
+    image: "/logos/Oracle.svg",
     className: "h-7 w-auto",
   },
   {
-    id: "logo-8",
-    description: "Vercel",
-    image: "https://www.shadcnblocks.com/images/block/logos/vercel.svg",
+    id: "logo-jpmc",
+    description: "JP Morgan Chase",
+    image: "/logos/JP-Morgan-Chase.svg",
+    className: "h-7 w-auto",
+  },
+  {
+    id: "logo-cs",
+    description: "Credit Suisse",
+    image: "/logos/Credit-Suisse.svg",
+    className: "h-7 w-auto",
+  },
+  {
+    id: "logo-citi",
+    description: "Citi",
+    image: "/logos/Citi.svg",
+    className: "h-7 w-auto",
+  },
+  {
+    id: "logo-salomon",
+    description: "Salomon Brothers",
+    image: "/logos/Salomon Brothers.svg",
     className: "h-7 w-auto",
   },
 ];
@@ -36,7 +54,7 @@ export function LogosSlider({ reverse = false }: { reverse?: boolean }) {
     <div className='relative h-[100px] w-full overflow-hidden'>
       <InfiniteSlider 
         className='flex h-full w-full items-center' 
-        duration={30}
+        duration={50}
         gap={48}
         reverse={reverse}
       >
