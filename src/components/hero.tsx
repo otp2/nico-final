@@ -4,6 +4,7 @@ import Image from "next/image";
 
 // Local component imports
 import { Section, Container } from "@/components/ds";
+import Navbar from "./navbar";
 
 // Asset imports
 // import Placeholder from "@/public/placeholder.jpg";
@@ -13,7 +14,7 @@ const Hero = () => {
     <Section className="relative h-[90vh]">
       <Container className="relative not-prose h-full">
         {/* Name and Nav */}
-        <div className="flex w-full justify-between">
+        <div className="flex w-full justify-between items-start">
           <div className="">
             <h1 className="mb-4 text-3xl font-normal md:text-6xl">
               <Link className="transition-all hover:opacity-70" href="#">
@@ -24,20 +25,7 @@ const Hero = () => {
               Another component from Craft UI.
             </h2>
           </div>
-          <div className="hidden gap-4 md:flex">
-            <Link className="transition-all hover:opacity-70" href="#">
-              Book a component
-            </Link>
-            <Link className="transition-all hover:opacity-70" href="#">
-              Heros
-            </Link>
-            <Link className="transition-all hover:opacity-70" href="#">
-              Shop
-            </Link>
-            <Link className="transition-all hover:opacity-70" href="#">
-              Learn More
-            </Link>
-          </div>
+          <Navbar />
         </div>
 
         {/* Images */}
@@ -62,13 +50,6 @@ const Hero = () => {
               height={420}
             ></Image>
           </div>
-        </div>
-
-        {/* Circle CTA */}
-        <div className="absolute bottom-2 right-2 flex h-12 w-12 items-center justify-center rounded-full border bg-secondary p-12 text-center font-medium leading-4 transition-all hover:opacity-80">
-          <Link className="-mt-1" href="#">
-            Get Started
-          </Link>
         </div>
       </Container>
     </Section>

@@ -1,8 +1,29 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Nico Abuaf - Personal Portfolio Website
+
+This is a personal portfolio website for Nico Abuaf, built with [Next.js](https://nextjs.org/), TypeScript, and Tailwind CSS. It showcases expertise in finance and provides access to a resource library.
+
+## Technologies Used
+
+*   **Framework:** [Next.js](https://nextjs.org/) (v14+ with App Router)
+*   **Language:** [TypeScript](https://www.typescriptlang.org/)
+*   **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+*   **UI Components:** [shadcn/ui](https://ui.shadcn.com/) (Button, Sheet, NavigationMenu, etc.)
+*   **Icons:** [Lucide React](https://lucide.dev/)
+*   **Fonts:** Geist Sans / Geist Mono
 
 ## Getting Started
 
-First, run the development server:
+First, install the dependencies:
+
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+```
+
+Then, run the development server:
 
 ```bash
 npm run dev
@@ -10,27 +31,34 @@ npm run dev
 yarn dev
 # or
 pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+You can start editing the main page by modifying `src/app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Project Structure
 
-## Learn More
+*   `src/app/`: Contains the core application routing, the root layout (`layout.tsx`), global styles (`globals.css`), and the main homepage (`page.tsx`). Subdirectories here will correspond to page routes (e.g., `src/app/about/page.tsx`).
+*   `src/components/`: Contains reusable React components used throughout the application.
+    *   `navbar.tsx`: The main navigation component with desktop dropdowns and a mobile sheet drawer.
+    *   `hero.tsx`: The hero section displayed on the homepage.
+    *   `ui/`: UI primitive components provided by shadcn/ui (Button, Sheet, NavigationMenu).
+    *   `ds/`: Custom "design system" components (`Section`, `Container`) used for layout.
+*   `src/lib/`: Utility functions, such as `cn` in `utils.ts`.
+*   `public/`: Static assets like images (e.g., `new-york-city.svg`, `nico-abuaf.svg`).
 
-To learn more about Next.js, take a look at the following resources:
+## Available Scripts
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+In the project directory, you can run:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+*   `npm run dev`: Runs the app in development mode.
+*   `npm run build`: Builds the app for production.
+*   `npm run start`: Starts a production server.
+*   `npm run lint`: Runs ESLint for code analysis.
 
 ## Deploy on Vercel
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Check out the [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
