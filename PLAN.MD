@@ -14,9 +14,19 @@ Based on our work, here are some logical next steps:
 Create Content Pages: The navigation links (/about, /about/experience, /expertise/advisory, /library/publications, /contact, etc.) currently don't lead anywhere. You'll need to create the corresponding page files (e.g., src/app/about/page.tsx, src/app/expertise/advisory/page.tsx) and populate them with the actual content.
 Build Out Components: Create components for specific content types (e.g., a PublicationCard, CaseStudySummary, ExperienceTimeline) to use on the content pages.
 Contact Page Functionality: Implement the /contact page, potentially adding a contact form (which would likely require backend logic or a third-party service like Formspree, Resend, etc.).
-Refine Hero Section: Update the text "Another component from Craft UI" in src/components/hero.tsx to something more relevant. Replace the placeholder link on "Nico Abuaf" if needed.
+Refine Hero Section: Update the text "Another component from Craft UI" in src/components/hero.tsx to something more relevant. Replace the placeholder link on "Niso Abuaf" if needed.
 Footer: Add a site footer, perhaps in src/app/layout.tsx or as a separate component.
 Responsiveness & Testing: Thoroughly test the site on various screen sizes (desktop, tablet, mobile) to ensure layouts are consistent and usable.
 Accessibility (A11y): Perform an accessibility audit. Ensure images have meaningful alt text, interactive elements are keyboard-navigable, and color contrast is sufficient.
 SEO: Add proper metadata (titles, descriptions) to each page in layout.tsx or page.tsx files for better search engine visibility.
 Deployment: Set up deployment via Vercel (as mentioned in the README) or another hosting provider.
+
+## Hero Section (hero.tsx)
+- [x] **Objective:** Create a compelling full-screen hero section introducing Nico Abuaf and his dual roles.
+- [x] **Layout:**
+    - [x] Full height (`h-screen`).
+    - [x] **Images:**
+        - [x] Display two images (`new-york-city.svg`, `nico-abuaf.svg`) side-by-side, aligned to the bottom right.
+        - [x] Ensure images scale appropriately and potentially have subtle animations on load/hover if relevant. Replace the placeholder link on "Niso Abuaf" if needed.
+        - [x] Use Next.js `<Image>` component for optimization.
+- [ ] **Interactivity:** Hover effect on name link.

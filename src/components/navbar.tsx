@@ -12,6 +12,7 @@ import {
   SheetTitle,
   SheetTrigger,
   SheetClose,
+  SheetHeader,
 } from "@/components/ui/sheet";
 import {
   NavigationMenu,
@@ -23,15 +24,15 @@ import {
   NavigationMenuViewport, // Import Viewport
 } from "@/components/ui/navigation-menu"; // Import NavigationMenu components
 import { cn } from "@/lib/utils"; // Re-add cn import
-import { buttonVariants } from "@/components/ui/button"; // Import buttonVariants
+import { buttonVariants } from "@/components/ui/button"; // Re-add buttonVariants import
 
 // --- UPDATED Navigation Structure --- START ---
 
 // Data for "About" dropdown (replaces Getting Started)
 const aboutFeatured = {
-  title: "Nico Abuaf", // Updated
+  title: "Niso Abuaf", // Updated
   href: "/about", // Updated
-  description: "Professional overview of Nico Abuaf's expertise.", // Updated
+  description: "Professional overview of Niso Abuaf&apos;s expertise.", // Reverted to &apos; for linter
 };
 
 const aboutLinks: { title: string; href: string; description: string }[] = [
@@ -118,25 +119,25 @@ const Navbar = () => {
           <NavigationMenuList>
             {/* About Item (was Getting Started) */}
             <NavigationMenuItem>
-              <NavigationMenuTrigger className="text-sm md:text-base">About</NavigationMenuTrigger> {/* Label Updated */}
+              <NavigationMenuTrigger className="text-sm md:text-base text-zinc-700 dark:text-zinc-300">About</NavigationMenuTrigger>
               <NavigationMenuContent>
                 <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
                   <li className="row-span-3">
                     <NavigationMenuLink asChild>
                       <a
                         className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
-                        href={aboutFeatured.href} /* Data Updated */
+                        href={aboutFeatured.href}
                       >
-                        <div className="mb-2 mt-4 text-lg font-medium">
-                          {aboutFeatured.title} {/* Data Updated */}
+                        <div className="mb-2 mt-4 text-lg font-medium text-zinc-700 dark:text-zinc-300">
+                          {aboutFeatured.title}
                         </div>
                         <p className="text-sm leading-tight text-muted-foreground">
-                          {aboutFeatured.description} {/* Data Updated */}
+                          {aboutFeatured.description}
                         </p>
                       </a>
                     </NavigationMenuLink>
                   </li>
-                  {aboutLinks.map((item) => ( /* Data Updated */
+                  {aboutLinks.map((item) => (
                     <ListItem
                       key={item.title}
                       title={item.title}
@@ -151,7 +152,7 @@ const Navbar = () => {
 
             {/* Expertise Item (was Components) */}
             <NavigationMenuItem>
-              <NavigationMenuTrigger className="text-sm md:text-base">Expertise</NavigationMenuTrigger> {/* Label Updated */}
+              <NavigationMenuTrigger className="text-sm md:text-base text-zinc-700 dark:text-zinc-300">Expertise</NavigationMenuTrigger>
               <NavigationMenuContent>
                  {/* Updated layout: Match 'About' but featured on the right */}
                 <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[1fr_.75fr]"> {/* Grid columns swapped */}
@@ -177,7 +178,7 @@ const Navbar = () => {
                         className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md" /* Ensure justify-end and no text-right */
                         href="/expertise/advisory" /* Hardcoded href for featured */
                       >
-                        <div className="mb-2 mt-4 text-lg font-medium">
+                        <div className="mb-2 mt-4 text-lg font-medium text-zinc-700 dark:text-zinc-300">
                           Advisory Services {/* Hardcoded title for featured */}
                         </div>
                         <p className="text-sm leading-tight text-muted-foreground">
@@ -235,8 +236,16 @@ const Navbar = () => {
               <Link
                 href="/contact"
                 className={cn(
+                  // Restore outline variant
                   buttonVariants({ variant: "outline", size: "sm" }),
-                  "text-sm md:text-base h-9 px-4 py-2" // Match sizing/padding of triggers
+                  // Set specific light grey border
+                  "border-zinc-200 dark:border-zinc-700",
+                  // Set hover: white bg, dark text, no border
+                  "hover:bg-white hover:text-zinc-900 hover:border-transparent dark:hover:text-zinc-900",
+                  // Keep focus similar to default outline or remove explicit focus?
+                  // For now, remove explicit focus:bg-background focus:text-foreground
+                  // Add back base text size class if needed from variant
+                  "text-sm md:text-base" 
                 )}
               >
                 Contact
@@ -262,44 +271,38 @@ const Navbar = () => {
             </Button>
           </SheetTrigger>
           <SheetContent side="right" className="w-full max-w-sm p-6 overflow-y-auto">
-             {/* Removed Header */}
-             {/* <SheetHeader className="mb-6 text-left"> */}
-             {/*    <SheetTitle className="text-xl font-semibold">Nico Abuaf</SheetTitle> */}
-             {/* </SheetHeader> */}
-
-             {/* Removed Explicit Close Button */}
-             {/* <SheetClose asChild className="absolute right-6 top-6 rounded-sm opacity-70 ...">
-               <Button variant="ghost" size="icon">
-                 <X className="h-4 w-4" />
-                 <span className="sr-only">Close</span>
-               </Button>
-             </SheetClose> */}
+             {/* Remove border-b from SheetHeader */}
+             <SheetHeader className="p-4 text-left">
+               {/*    <SheetTitle className="text-xl font-semibold">Niso Abuaf</SheetTitle> */}
+             </SheetHeader>
 
              {/* Ensure sr-only title remains if needed by SheetContent */}
              <SheetTitle className="sr-only">Mobile Navigation Menu</SheetTitle>
 
-             {/* Adjusted top padding/margin (removed pt-8, rely on SheetContent padding) */}
-             <div className="flex flex-col space-y-1 mt-4"> {/* Adjusted mt-4 */}
-                {/* Home Link (Main Item Styling) */}
-                <SheetClose key="Home"> {/* Removed asChild */}
+             {/* Remove mt-4 to move content up */}
+             <div className="flex flex-col space-y-1">
+                {/* Home Link */} 
+                <SheetClose key="Home">
                    <Link
                      href="/"
-                     className="text-lg font-semibold block text-left py-3 rounded-md transition-colors hover:text-primary" // Removed hover:bg, mx, px classes from here
+                     className="text-lg font-semibold block text-left py-3 rounded-md transition-colors hover:text-primary text-zinc-700 dark:text-zinc-300"
                      onClick={() => setIsOpen(false)}
                    >
                      Home
                    </Link>
                 </SheetClose>
 
-                <hr className="my-3 border-border" />
+                {/* Add divider back, with correct gradient */}
+                <hr className="my-3 h-px border-0 bg-gradient-to-r from-zinc-700 to-transparent" />
 
-                {/* About Section */}
-                <span className="text-lg font-semibold block text-left pt-0 pb-2">About</span> {/* Removed pt-3 */}
+                {/* About Section */} 
+                <span className="text-lg font-semibold block text-left pt-0 pb-2 text-zinc-700 dark:text-zinc-300">About</span>
                 {[aboutFeatured, ...aboutLinks].map((item) => (
-                  <SheetClose key={item.title}> {/* Removed asChild */}
+                  <SheetClose key={item.title}>
+                     {/* Remove pl-4 */}
                      <Link
                        href={item.href}
-                       className="text-base font-normal text-muted-foreground block text-left pl-4 py-2 rounded-md transition-colors hover:text-primary" // Removed hover:bg, hover:text-accent-foreground
+                       className="text-base font-normal text-muted-foreground block text-left py-2 rounded-md transition-colors hover:text-primary"
                        onClick={() => setIsOpen(false)}
                      >
                        {item.title}
@@ -307,15 +310,17 @@ const Navbar = () => {
                   </SheetClose>
                 ))}
 
-                <hr className="my-3 border-border" />
+                {/* Correct gradient: from-zinc-700 to-transparent */}
+                <hr className="my-3 h-px border-0 bg-gradient-to-r from-zinc-700 to-transparent" />
 
-                {/* Expertise Section */}
-                <span className="text-lg font-semibold block text-left pt-3 pb-2">Expertise</span> {/* Kept pt-3 here */}
+                {/* Expertise Section */} 
+                <span className="text-lg font-semibold block text-left pt-3 pb-2 text-zinc-700 dark:text-zinc-300">Expertise</span>
                 {expertiseLinks.map((item) => (
-                   <SheetClose key={item.title}> {/* Removed asChild */}
+                   <SheetClose key={item.title}>
+                     {/* Remove pl-4 */}
                      <Link
                        href={item.href}
-                       className="text-base font-normal text-muted-foreground block text-left pl-4 py-2 rounded-md transition-colors hover:text-primary" // Removed hover:bg, hover:text-accent-foreground
+                       className="text-base font-normal text-muted-foreground block text-left py-2 rounded-md transition-colors hover:text-primary"
                        onClick={() => setIsOpen(false)}
                      >
                        {item.title}
@@ -323,14 +328,17 @@ const Navbar = () => {
                    </SheetClose>
                 ))}
 
-                <hr className="my-3 border-border" />
+                {/* Correct gradient: from-zinc-700 to-transparent */}
+                <hr className="my-3 h-px border-0 bg-gradient-to-r from-zinc-700 to-transparent" />
 
-                 <span className="text-lg font-semibold block text-left pt-3 pb-2">Library</span>
-                 {[libraryFeatured, ...libraryLinks].map((item) => (
-                   <SheetClose key={item.title}> {/* Removed asChild */}
+                {/* Library Section */} 
+                <span className="text-lg font-semibold block text-left pt-3 pb-2 text-zinc-700 dark:text-zinc-300">Library</span>
+                {[libraryFeatured, ...libraryLinks].map((item) => (
+                   <SheetClose key={item.title}>
+                      {/* Remove pl-4 */}
                       <Link
                         href={item.href}
-                        className="text-base font-normal text-muted-foreground block text-left pl-4 py-2 rounded-md transition-colors hover:text-primary" // Removed hover:bg, hover:text-accent-foreground
+                        className="text-base font-normal text-muted-foreground block text-left py-2 rounded-md transition-colors hover:text-primary"
                         onClick={() => setIsOpen(false)}
                       >
                         {item.title}
@@ -338,9 +346,11 @@ const Navbar = () => {
                    </SheetClose>
                  ))}
 
-                <hr className="my-3 border-border" />
+                {/* Correct gradient: from-zinc-700 to-transparent */}
+                <hr className="my-3 h-px border-0 bg-gradient-to-r from-zinc-700 to-transparent" />
 
-                  <SheetClose key="Contact"> {/* Removed asChild */}
+                {/* Contact Link */} 
+                  <SheetClose key="Contact">
                      <Link
                         href="/contact"
                         className="text-lg font-semibold block text-left py-3 rounded-md transition-colors hover:text-primary" // Removed hover:bg, mx, px classes from here
@@ -369,12 +379,16 @@ const ListItem = React.forwardRef<
           href={href || "#"}
           ref={ref}
           className={cn(
-            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors",
+            "hover:bg-zinc-100 hover:text-zinc-900", 
+            "focus:bg-accent focus:text-accent-foreground",
             className
           )}
           {...props}
         >
+          {/* Remove explicit text color - inherit from --foreground */}
           <div className="text-sm font-medium leading-none">{title}</div>
+          {/* Keep text-muted-foreground for description */}
           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
             {children}
           </p>

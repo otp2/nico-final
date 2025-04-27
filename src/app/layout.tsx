@@ -1,14 +1,28 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+// REMOVE Geist imports
+// import { Geist, Geist_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 
+// REMOVE Geist sans instantiation
+/*
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
+*/
 
+// REMOVE Geist mono instantiation
+/*
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+*/
+
+// Keep Inter instantiation
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
 });
 
@@ -24,8 +38,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      {/* Use ONLY inter.variable */}
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased pt-1.5`}
+        className={`${inter.variable} antialiased`}
       >
         {children}
       </body>

@@ -1,6 +1,6 @@
-# Nico Abuaf - Personal Portfolio Website
+# Niso Abuaf - Personal Portfolio Website
 
-This is a personal portfolio website for Nico Abuaf, built with [Next.js](https://nextjs.org/), TypeScript, and Tailwind CSS. It showcases expertise in finance and provides access to a resource library.
+This is a personal portfolio website for Niso Abuaf, built with [Next.js](https://nextjs.org/), TypeScript, and Tailwind CSS. It showcases expertise in finance and provides access to a resource library.
 
 ## Technologies Used
 
